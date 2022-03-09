@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 // Database Connection
 import { connect } from './models/connection';
 connect();
+
 app.listen(port, async () => {
     console.info(`Port ${port}.`);
 });
