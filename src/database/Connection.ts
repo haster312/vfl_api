@@ -1,7 +1,7 @@
-import Variable from "../config/variable";
+import Variable from "../config/Variable";
 import { DataSource } from "typeorm"
 
-export const connection = new DataSource({
+export const Connection = new DataSource({
     type: "mysql",
     host: Variable.Database.Host,
     port: 3306,

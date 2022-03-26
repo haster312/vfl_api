@@ -1,16 +1,16 @@
 import Express from 'express';
 // import cors from 'cors';
 import bodyParser from "body-parser";
-import Variable from './config/variable';
+import Variable from './config/Variable';
 const app = Express();
 const port = Variable.ServerPort ?? 5000;
 
 app.use('/public', Express.static('public'));
 app.use(bodyParser.json());
 
-import { connection } from './database';
+import { Connection } from './database/Connection';
 
-connection
+Connection
     .initialize()
     .then(() => {
         console.log("Data Source has been initialized!")
