@@ -1,10 +1,10 @@
 import Express from 'express';
 const router = Express.Router();
 
+import UserController from "./UserController";
+
 const routes = () => {
-    router.get('/', (req, res) => {
-        return res.json('Success');
-    });
+    router.use('/user', UserController());
 
     return router;
 };
