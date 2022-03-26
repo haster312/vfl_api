@@ -8,9 +8,8 @@ const port = Variable.ServerPort ?? 5000;
 app.use('/public', Express.static('public'));
 app.use(bodyParser.json());
 
-// Database Connection
-import { connect } from './models/connection';
-connect();
+import routes  from "./controllers/router";
+app.use(routes());
 
 app.listen(port, async () => {
     console.info(`Port ${port}.`);

@@ -1,5 +1,5 @@
 export interface IPagination {
-    rows: Array<Object>,
+    rows: Array<Record<string, unknown>>,
     current_page: number,
     total_page: number,
     total_row: number
