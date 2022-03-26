@@ -1,7 +1,7 @@
-import {connection} from '../database';
+import { Connection } from '../database/Connection';
 import User from '../entity/User';
 
-export const UserRepository = connection.getRepository(User).extend({
+export const UserRepository = Connection.getRepository(User).extend({
 
 });
 
