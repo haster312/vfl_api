@@ -7,8 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./src/app.ts",
     "lint": "eslint . --ext .ts",
-    "start": "node build/app.js",
-    "build": "rm -rf build & tsc --project ./",
+    "start": "ts-node ./src/app.ts",
     "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
   },
   "repository": {
