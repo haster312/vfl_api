@@ -1,7 +1,7 @@
 import Express from 'express';
 // import cors from 'cors';
 import bodyParser from "body-parser";
-import Variable from './config/variable';
+import Variable from './config/Variable';
 const app = Express();
 const port = Variable.ServerPort ?? 5000;
 
