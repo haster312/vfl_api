@@ -2,9 +2,9 @@
 
 name: CI
 env:
-  DB_DATABASE: test_db
-  DB_USER: root
-  DB_PASSWORD: root
+  DATABASE_NAME: test_db
+  DATABASE_USER: root
+  DATABASE_PASSWORD: root
 
 # Controls when the workflow will run
 on:
@@ -37,6 +37,6 @@ jobs:
       - name: Initize MySQL
         run: |
           sudo /etc/init.d/mysql start
-          mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
+          mysql -e 'CREATE DATABASE ${{ env.DATABASE_NAME }};' -u${{ env.DATABASE_USER }} -p${{ env.DATABASE_PASSWORD }}
       - name: Run test
         run: npm test
