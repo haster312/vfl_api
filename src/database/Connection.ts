@@ -3,11 +3,11 @@ import { DataSource } from "typeorm"
 
 export const Connection = new DataSource({
     type: "mysql",
-    host: Variable.Database.Host,
+    host: Variable.Database[Variable.Env].Host,
     port: 3306,
-    username: Variable.Database.User,
-    password: Variable.Database.Password,
-    database: Variable.Database.Name,
+    username: Variable.Database[Variable.Env].User,
+    password: Variable.Database[Variable.Env].Password,
+    database: Variable.Database[Variable.Env].Name,
     entities: ["src/entity/*.ts"],
     logging: process.env.NODE_ENV == 'production' ?? false,
     synchronize: true,

@@ -1,0 +1,1 @@
+create database if not exists dev_db character set UTF8mb4 collate utf8mb4_bin

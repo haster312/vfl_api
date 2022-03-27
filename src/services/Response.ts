@@ -11,7 +11,7 @@ export const Pagination = (res: Response, data: IPagination) => {
     }).end();
 };
 
-export const Success = (res: Response, data: Array<object> | object, message = null) => {
+export const Success = (res: Response, data: Array<object> | object | boolean, message = null) => {
     return res.status(200).json({
         data: data,
         message: message
