@@ -12,6 +12,13 @@ const UserController = () => {
         return Success(res, users);
     });
 
+    router.get('/:id', async (req: Request, res: Response) => {
+        const id = parseInt(req.params.id);
+        const user = await UserRepository.findOneBy({id});
+
+        return Success(res, user);
+    });
+
     return router;
 };
 
