@@ -7,25 +7,22 @@ import {
     UpdateDateColumn,
     AfterLoad,
     BeforeInsert,
-    BeforeUpdate,
-    OneToOne,
-    JoinColumn
+    BeforeUpdate
 } from "typeorm";
 
 import Role from './Role';
 
 import * as bcrypt from 'bcrypt';
-import Admin from "./Admin";
 
-@Entity({ name: 'users' })
-class User extends BaseEntity {
+@Entity({ name: 'admins' })
+class Admin extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
     first_name: string;
 
-    @Column()
+    @Column({ nullable: true})
     last_name: string;
 
     @Column({
@@ -37,30 +34,6 @@ class User extends BaseEntity {
         nullable: true
     })
     password: string;
-
-    @Column({
-        nullable: true,
-    })
-    dob: Date;
-
-    @Column({
-        default: 0
-    })
-    status: number;
-
-    @OneToOne(() => Role)
-    @JoinColumn({ name: 'role_id', referencedColumnName: 'id' })
-    role: Role
-
-    @Column({ nullable: true })
-    role_id: number;
-
-    @OneToOne(() => Admin)
-    @JoinColumn({ name: 'admin_id', referencedColumnName: 'id' })
-    created_by: Admin
-
-    @Column({ nullable: true })
-    admin_id: number;
 
     @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
     public created_at: Date;
@@ -74,7 +47,7 @@ class User extends BaseEntity {
     private loadTempPassword(): void {
         this.newPassword = this.password;
     }
-    
+
     @BeforeInsert()
     @BeforeUpdate()
     private encryptPassword() {
@@ -93,4 +66,4 @@ class User extends BaseEntity {
     }
 }
 
-export default User;
+export default Admin;

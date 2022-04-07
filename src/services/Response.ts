@@ -34,7 +34,7 @@ export const Abort = (res: Response, message: string|Array<string> = null, code 
     }
 };
 
-export const Unauthorized =(res: Response, message = null) => {
+export const Unauthorized = (res: Response, message = "Forbidden") => {
     return res.status(403).json({'message': message}).end();
 };
 

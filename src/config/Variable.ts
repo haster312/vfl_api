@@ -6,6 +6,7 @@ import path from 'path';
 export default {
     Env: process.env.NODE_ENV ?? 'development',
     ServerPort: process.env.PORT,
+    JWTSecret: process.env.JWT_SECRET,
     Database: {
         test: {
             Host: 'localhost',
@@ -27,5 +28,7 @@ export default {
         }
     },
     PublicFileName: "public/images",
-    UploadPath: path.join(__dirname, "../../public/images")
+    UploadPath: path.join(__dirname, "../../public/images"),
+    PrivateKey: path.join(__dirname, "../../private.pem"),
+    PublicKey: path.join(__dirname, "../../public.pem"),
 }
